@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/style.css" rel="stylesheet">
+  </head>
+  <body>
+    <div style="position: relative; left: 0; top: 0;">
+      <img class="arena" src="images/background.png"/>
+
+      <div class=pokemonOneText>
+        <p>Pokemon One Text</p>
+      </div>
+     
+      </div >
+        <img class="pokemonOne" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png"/>
+      <div>
+
+        </div >
+        <img class="pokemonOne" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png"/>
+      <div>
+
+      <div class=pokemonTwoText>
+        <p>Pokemon Two Text</p>
+      </div>
+
+      </div >
+        <img class="pokemonTwo" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/25.png"/>
+      </div>
+      <div>
+
+<script>
+let pokemon; 
+let pokemonTwo;
+
+window.onload = function() {
+  getPokemonOne();
+  getPokemonTwo();
+}
+
+const getPokemonOne = () => {
+  fetch('https://pokeapi.co/api/v2/pokemon/1/')
+    .then(res => res.json())
+    .then(posts => pokemon = posts)
+}
+
+const getPokemonTwo = () => {
+  fetch('https://pokeapi.co/api/v2/pokemon/2/')
+    .then(res => res.json())
+    .then(posts => pokemonTwo = posts)
+}
+
+setTimeout(function(){ console.log(pokemon); }, 500);
+setTimeout(function(){ console.log(pokemonTwo); }, 500);
+
+
+// console.log(pokemon);
+// console.log(pokemonTwo);
+
+        
+</script>
+  
+  </body>
+</html>

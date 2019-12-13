@@ -1,0 +1,48 @@
+  /* body {
+    background-image: url("../images/background.png");
+    background-repeat: no-repeat;
+  }
+} */
+
+.arena
+{
+  position: relative;
+  top: 0;
+  left: 0;
+}
+
+.pokemonOne
+{
+  position: absolute;
+  top: 160px;
+  left: 500px;
+}
+
+.pokemonTwo
+{
+  position: absolute;
+  top: 250px;
+  left: 650px;
+}
+
+.pokemonTwo {
+  -moz-transform: scale(-1, 1);
+  -o-transform: scale(-1, 1);
+  -webkit-transform: scale(-1, 1);
+  transform: scale(-1, 1);
+}
+
+
+.pokemonOneText
+{
+  position: absolute;
+  top: 100px;
+  left: 100px;
+}
+
+.pokemonTwoText
+{
+  position: absolute;
+  top: 500px;
+  left: 900px;
+}

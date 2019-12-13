@@ -8,27 +8,32 @@
   </head>
   <body>
     <div style="position: relative; left: 0; top: 0;">
-      <img class="arena" src="images/background.png"/>
+        <img class="arena" src="images/background.png"/>
 
-      <div class=pokemonOneText>
-        <p>Pokemon One Text</p>
-      </div>
-     
-      </div >
-        <img class="pokemonOne" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png"/>
-      <div>
+        <div class=instructions>
+            <p>Refresh page to get new set of Pokemon</p>
+        </div>
+
+        <div class=pokemonOneText>
+          <p class="pokemonOneP">Pokemon Go!</p>
+        </div>
+      
+        </div >
+          <img class="pokemonOne" src="./images/small.png" alt="front" />
+        <div>
 
         </div >
-        <img class="pokemonOne" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png"/>
-      <div>
+          <img class="pokemonTwo" src="./images/small.png" alt="back" />
+        </div>
 
-      <div class=pokemonTwoText>
-        <p>Pokemon Two Text</p>
-      </div>
+        <div class=pokemonTwoText>
+            <p class="pokemonTwoP">Pokemon Go!</p>
+        </div>
 
-      </div >
-        <img class="pokemonTwo" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/25.png"/>
-      </div>
+        <div class=fightresult>
+          <p>Who will win the match?</p>
+        </div>
+
       <div>
 
 <script>
@@ -41,13 +46,13 @@ window.onload = function() {
 }
 
 const getPokemonOne = () => {
-  fetch('https://pokeapi.co/api/v2/pokemon/1/')
+  fetch(`https://pokeapi.co/api/v2/pokemon/${Math.floor(Math.random() * 700) + 1  }/`)
     .then(res => res.json())
     .then(posts => pokemon = posts)
 }
 
 const getPokemonTwo = () => {
-  fetch('https://pokeapi.co/api/v2/pokemon/2/')
+  fetch(`https://pokeapi.co/api/v2/pokemon/${Math.floor(Math.random() * 700) + 1  }/`)
     .then(res => res.json())
     .then(posts => pokemonTwo = posts)
 }
@@ -55,10 +60,17 @@ const getPokemonTwo = () => {
 setTimeout(function(){ console.log(pokemon); }, 500);
 setTimeout(function(){ console.log(pokemonTwo); }, 500);
 
+let image1 = document.querySelector('.pokemonOne');
+let image2 = document.querySelector('.pokemonTwo');
 
-// console.log(pokemon);
-// console.log(pokemonTwo);
+setTimeout(function(){image1.src = pokemon.sprites.front_default; }, 1000);
+setTimeout(function(){image2.src = pokemonTwo.sprites.back_default; }, 1000);
 
+let pokemonName1 = document.querySelector('.pokemonOneP');
+let pokemonName2 = document.querySelector('.pokemonTwoP');
+
+setTimeout(function(){ pokemonName1.innerText = `Pokemons name: ${pokemon.name}`; }, 1000);
+setTimeout(function(){ pokemonName2.innerText = `Pokemons name: ${pokemonTwo.name}`; }, 1000);
         
 </script>
   
